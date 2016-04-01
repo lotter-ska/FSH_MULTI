@@ -62,8 +62,10 @@ fig = plt.figure(figsize=(18.8,9.8))
 for x in range(q):
     txt="Select measurement %s" % str(x+1)
     filename = askopenfilename(title=txt)
-    f1, e1=convert(filename,filename_ant,filename_lna)   
-    plt.plot(f1,e1,label=filename)
+    f1, e1=convert(filename,filename_ant,filename_lna)  
+    leg = raw_input("Legend for trace? ")
+    plt.plot(f1,e1,label=leg)
+    
 
 
 plt.legend()
@@ -73,8 +75,6 @@ plt.ylabel("E Field [dBuV/m]")
 plt.title("Comparison of Measurements")  #change title here if required
 flnm=time.strftime("%Y%m%d")+"_Measurements"
 plt.savefig(flnm,dpi=100)
-
-
 
 
 
