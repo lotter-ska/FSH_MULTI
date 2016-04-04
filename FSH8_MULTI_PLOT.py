@@ -17,8 +17,8 @@ import time
 def convert(dut,antennaF,lna):
 #    dut="/FSH Data/20160309_GEO_Equipment/asuslaptop.csv"
     data= np.genfromtxt(dut,delimiter=',',dtype=None)
-    freq=(data[45:-1,0]).astype(np.float)
-    dbm=(data[45:-1,1]).astype(np.float)
+    freq=(data[np.where(data[:,0]=="Freq. [Hz]")[0][0]+1:-1,0]).astype(np.float)
+    dbm=(data[np.where(data[:,0]=="Freq. [Hz]")[0][0]+1:-1,1]).astype(np.float)
     dbuV=dbm+107
     
 #    antennaF="/RFI Archive/Equipment_Database/Passive_Antennas/Antenna_MESA_KLPDA1.csv"
